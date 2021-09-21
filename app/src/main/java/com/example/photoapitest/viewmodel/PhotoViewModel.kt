@@ -9,17 +9,20 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 private const val TAG = "PhotoViewModel"
+
 class PhotoViewModel: ViewModel() {
 
-    private val networkService: PhotoApi by lazy{
+    private val networkService: PhotoApi by lazy {
         Network().api
     }
 
-    //executes after constructor invocation
-    init{
-        //todo execute network call
-        //todo create the live data
-        //todo update the live data from the  coroutine response
+    /**
+     * Executes immediately after Constructor invocation.
+     */
+    init {
+        // todo execute network call
+        // todo create the livedata
+        // todo update the livedata from coroutine response
         CoroutineScope(Dispatchers.IO).launch {
             val response = networkService.getPhotos()
             Log.d(TAG, "Coroutine Response: $response")

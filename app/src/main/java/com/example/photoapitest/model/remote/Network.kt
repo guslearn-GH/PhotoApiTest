@@ -6,11 +6,11 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 class Network {
 
-    val api: PhotoApi by lazy{
+    val api: PhotoApi by lazy {
         initRetrofit()
     }
 
-    fun initRetrofit() :PhotoApi{
+    private fun initRetrofit(): PhotoApi {
         return Retrofit.Builder()
             .baseUrl(BuildConfig.BASE_URL)
             .addConverterFactory(GsonConverterFactory.create())
